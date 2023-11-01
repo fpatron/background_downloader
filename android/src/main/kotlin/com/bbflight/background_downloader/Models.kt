@@ -5,6 +5,7 @@ package com.bbflight.background_downloader
 import android.content.Context
 import android.net.Uri
 import android.util.Log
+import androidx.annotation.Keep
 import com.bbflight.background_downloader.BDPlugin.Companion.gson
 import com.bbflight.background_downloader.TaskWorker.Companion.TAG
 import kotlinx.coroutines.Dispatchers
@@ -40,7 +41,7 @@ enum class Updates {
  * A blend of UploadTask, DownloadTask and ParallelDownloadTask with [taskType] indicating what kind
  * of task this is
  */
-
+@Keep
 class Task(
     val taskId: String = "${Random.nextInt().absoluteValue}",
     val url: String,
@@ -398,6 +399,7 @@ enum class TaskStatus {
 }
 
 /// Holds data associated with a resume
+@Keep
 class ResumeData(val task: Task, val data: String, val requiredStartByte: Long, val eTag: String?) {
     fun toJsonMap(): MutableMap<String, Any?> {
         return mutableMapOf(
@@ -420,6 +422,7 @@ class ResumeData(val task: Task, val data: String, val requiredStartByte: Long, 
  * The [TaskException.type] (as a String using the enum's [ExceptionType.typeString]) is used on the
  * Flutter side to create the approrpriate Exception subclass.
  */
+@Keep
 enum class ExceptionType(val typeString: String) {
     /// General error
     general("TaskException"),
@@ -449,6 +452,7 @@ enum class ExceptionType(val typeString: String) {
  * The [description] is typically taken from the platform-generated
  * error message, or from the plugin. The localization is undefined
  */
+@Keep
 class TaskException(
     val type: ExceptionType,
     val httpResponseCode: Int = -1,

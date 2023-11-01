@@ -2,6 +2,7 @@ package com.bbflight.background_downloader
 
 import android.content.Context
 import android.util.Log
+import androidx.annotation.Keep
 import androidx.work.WorkerParameters
 import com.bbflight.background_downloader.BDPlugin.Companion.gson
 import com.bbflight.background_downloader.BDPlugin.Companion.jsonMapType
@@ -433,6 +434,7 @@ class ParallelDownloadTaskWorker(applicationContext: Context, workerParams: Work
 }
 
 @Suppress("UNCHECKED_CAST")
+@Keep
 class Chunk(
     private val parentTaskId: String,
     private val url: String,
