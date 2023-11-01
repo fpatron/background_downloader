@@ -42,6 +42,7 @@ android {
 
     defaultConfig {
         minSdkVersion 24
+        consumerProguardFiles 'proguard-rules.pro'
     }
 
     namespace 'com.bbflight.background_downloader'
