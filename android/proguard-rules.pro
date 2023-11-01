@@ -1,1 +1,1 @@
--keep class com.bbflight.background_downloader.** { *; }
+#-keep class com.bbflight.background_downloader.** { *; }
